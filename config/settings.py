@@ -152,7 +152,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # AUTH_USER_MODEL = 'users.User'
-cache_status = os.getenv(CACHE_STATUS)
+cache_status = os.getenv('CACHE_STATUS')
 CACHE_ENABLED = True if cache_status == 'True' else False
 
 if CACHE_ENABLED: 
