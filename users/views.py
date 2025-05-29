@@ -5,7 +5,7 @@ from rest_framework.generics import (
     UpdateAPIView, 
     DestroyAPIView
 )
-from rest_framework.simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from users.models import User

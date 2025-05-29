@@ -185,4 +185,3 @@ CORS_ALLOW_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     'http://read-and-write.example.com',
 ]
-

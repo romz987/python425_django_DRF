@@ -9,7 +9,7 @@ class Command(BaseCommand):
             email='admin@myhost.su',
             first_name='Admin',
             last_name='Adminov',
-            role=UserRoles.ADMIN,
+            role=UserRoles.MODERATOR,
             is_staff=True,
             is_superuser=True,
             is_active=True
@@ -39,7 +39,7 @@ class Command(BaseCommand):
             email='user1@myhost.su',
             first_name='User',
             last_name='Userov',
-            role=UserRoles.USER,
+            role=UserRoles.MEMBER,
             is_staff=False,
             is_superuser=False,
             is_active=True

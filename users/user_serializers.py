@@ -23,7 +23,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
         ]
         
     def create(self, validated_data):
-        user = User.objects.create_user(**validated_data)
+        user = User.objects.create(**validated_data)
         user.set_password(user.password)
         user.save()
         return user
@@ -32,7 +32,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
 class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User 
-        fields = ['email', 'last_name', 'first_name', 'phone', 'is_active']
+        fields = ['email', 'last_name', 'first_name', 'phone', 'is_active', 'password']
         validators = [
             PasswordValidator(field='password'),
         ]
@@ -44,9 +44,9 @@ class UserTokenObtainPairSerializer(serializers.ModelSerializer):
         token = super().get_token(user)
         token['email'] = user.email
         return token
-
-
-{
-    "email": "user@mail.ru",
-    "password": "qwerty"
-}
+#
+#
+# {
+#     "email": "user@mail.ru",
+#     "password": "qwerty"
+# }
