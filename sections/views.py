@@ -14,7 +14,7 @@ from rest_framework.permissions import (
     IsAdminUser,
 )
 from sections.models import Section, Content
-from sections.permissions import IsModerator, IsSuperUser 
+from sections.permissions import IsModerator, IsSuperUser
 from sections.serializers.section_seralizers import (
     SectionSerializer, 
     SectionListSerializer,
@@ -45,16 +45,17 @@ class SectionCreateAPIView(CreateAPIView):
 class SectionRetrieveAPIView(RetrieveAPIView):
     serializer_class = SectionSerializer 
     queryset = Section.objects.all()
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
 
 
 class SectionUpdateAPIView(UpdateAPIView):
     serializer_class = SectionSerializer 
     queryset = Section.objects.all()
+    # permission_classes = (AllowAny, )
     # permission_classes = (IsAuthenticated, IsModerator | IsSuperUser)
 
 
 class SectionDestroyAPIView(DestroyAPIView):
     serializer_class = SectionSerializer  
     queryset = Section.objects.all()
-    permission_classes = (IsAuthenticated, IsSuperUser)
+    # permission_classes = (IsAuthenticated, IsSuperUser)
