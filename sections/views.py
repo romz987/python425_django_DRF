@@ -22,7 +22,7 @@ from sections.serializers.section_seralizers import (
 from sections.serializers.content_serializers import (
     ContentSerializer,
     SectionContentSerializer,
-    SectionContentListSerializer,
+    ContentListSerializer,
 )
 from sections.paginators import (
     SectionPaginator, 
@@ -51,11 +51,39 @@ class SectionRetrieveAPIView(RetrieveAPIView):
 class SectionUpdateAPIView(UpdateAPIView):
     serializer_class = SectionSerializer 
     queryset = Section.objects.all()
-    # permission_classes = (AllowAny, )
     # permission_classes = (IsAuthenticated, IsModerator | IsSuperUser)
 
 
 class SectionDestroyAPIView(DestroyAPIView):
     serializer_class = SectionSerializer  
     queryset = Section.objects.all()
+    # permission_classes = (IsAuthenticated, IsSuperUser)
+
+
+class ContentListAPIView(ListAPIView):
+    serializer_class = ContentListSerializer
+    queryset = Content.objects.all()
+    # permission_classes = (IsAuthenticated, )
+    pagination_class = ContentPaginator
+
+
+class ContentCreateAPIView(CreateAPIView):
+    serializer_class = ContentSerializer
+    # permission_classes = (IsAuthenticated, IsSuperUser | IsModerator) 
+
+
+class ContentRetrieveAPIView(RetrieveAPIView):
+    serializer_class = ContentSerializer
+    queryset = Content.objects.all()
+    # permission_classes = (IsAuthenticated, )
+
+
+class ContentUpdateAPIView(UpdateAPIView):
+    serializer_class = ContentSerializer
+    queryset = Content.objects.all()
+    # permission_classes = (IsAuthenticated, IsSuperUser | IsModerator) 
+
+class ContentDestroyAPIView(DestroyAPIView):
+    serializer_class = ContentSerializer
+    queryset = Content.objects.all()
     # permission_classes = (IsAuthenticated, IsSuperUser)
